@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+        <div class="content">
+            <div class="inputStuff">
+                <h1><%= title %></h1>
+
+                <div class="conversionSection">
+                    <h1>AUTH Dictionary </h1>
+                    <pre>
+                      <%- JSON.stringify(base, null, '    ') %>
+                    </pre>
+                </div>
+
+            </div>
+            <div class="conversionSection">
+                <h1>JWT</h1>
+                <pre>
+                    <%- JSON.stringify(result, null, '    ') %>
+                </pre>
+            </div>
+            <form method="post" action="/result">
+                <textarea type="text" id="giveMeNumber" name="base64Content" placeholder="Rerun the code"></textarea>
+                </br>
+                <button  >DECODE </button>
+            </form>
+        </div>
+</body>
+
+</html>
