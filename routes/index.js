@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/result', function(req, res, next){
-  console.log(req.body.base64Content);
     res.redirect('/results/' + req.body.base64Content);
 });
 
@@ -22,13 +21,10 @@ router.get('/results/:q', function(req, res, next){
 
       var b64decoded = JSON.parse(new Buffer(decodeURIComponent(req.params.q), 'base64').toString('utf8'));
       var payload = b64decoded.access_token;
-      console.log('********',payload)
       var secret = 'xxx';
 
       var decoded = JSON.parse(new Buffer(decodeURIComponent(payload.split('.')[1]), 'base64').toString('utf8'))
-      console.log("decoded--------",decoded) //=> { foo: 'bar' }
       // /////
-      console.log('access_token ',decoded.access_token)
 
       res.render('results', {
         title: 'RESULTS',
