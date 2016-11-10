@@ -6,6 +6,9 @@
         <%= title %>
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/styles/default.css">
+    <script src="/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -15,8 +18,9 @@
 
                 <div class="conversionSection">
                     <h1>AUTH Dictionary </h1>
-                    <pre>
+                    <pre><code>
                       <%- JSON.stringify(base, null, '    ') %>
+                    </code>
                     </pre>
                 </div>
 
@@ -24,7 +28,9 @@
             <div class="conversionSection">
                 <h1>JWT</h1>
                 <pre>
+                  <code>
                     <%- JSON.stringify(result, null, '    ') %>
+                  </code>
                 </pre>
             </div>
             <form method="post" action="/result">
